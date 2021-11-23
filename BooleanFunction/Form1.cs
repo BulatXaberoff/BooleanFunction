@@ -93,6 +93,8 @@ namespace BooleanFunction
         }
         private void Create_Click(object sender, EventArgs e)
         {
+            tableLayoutPanel1.Controls.Clear();
+            tableLayoutPanel2.Controls.Clear();
             FillTable();
             tableLayoutPanel1.ColumnStyles.Clear();
             tableLayoutPanel1.RowStyles.Clear();
@@ -171,7 +173,7 @@ namespace BooleanFunction
                         {
                             if (i == CountVariable - 1)
                             {
-                                SKNFstr += @"x_" + (i + 1);
+                                SKNFstr += @"\overline{x_" + (i + 1) + "}";
                                 continue;
                             }
                             SKNFstr += @"\overline{x_"+(i+1)+@"}\wedge ";
@@ -199,7 +201,7 @@ namespace BooleanFunction
                         {
                             if (i == CountVariable - 1)
                             {
-                                SDNFstr += @"x_" + (i + 1);
+                                SDNFstr += @"\overline{x_" + (i + 1)+"}";
                                 continue;
                             }
                             SDNFstr += @"\overline{x_" + (i + 1) + @"}\vee ";
