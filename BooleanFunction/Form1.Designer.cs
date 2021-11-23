@@ -35,6 +35,7 @@ namespace BooleanFunction
             this.Create = new System.Windows.Forms.Button();
             this.Create_Forms = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
             // 
             // label1
@@ -84,6 +85,7 @@ namespace BooleanFunction
             this.Create_Forms.Text = "Создать СКНФ и СДНФ";
             this.Create_Forms.UseVisualStyleBackColor = true;
             this.Create_Forms.Visible = false;
+            this.Create_Forms.Click += new System.EventHandler(this.Create_Forms_Click);
             // 
             // tableLayoutPanel2
             // 
@@ -96,11 +98,20 @@ namespace BooleanFunction
             this.tableLayoutPanel2.Size = new System.Drawing.Size(51, 496);
             this.tableLayoutPanel2.TabIndex = 20;
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(355, 204);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(484, 388);
+            this.flowLayoutPanel1.TabIndex = 22;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 680);
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ClientSize = new System.Drawing.Size(1024, 680);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.Create_Forms);
             this.Controls.Add(this.Create);
@@ -122,6 +133,7 @@ namespace BooleanFunction
         private System.Windows.Forms.Button Create;
         private System.Windows.Forms.Button Create_Forms;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }
 
