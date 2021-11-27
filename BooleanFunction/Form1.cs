@@ -20,6 +20,7 @@ namespace BooleanFunction
         public Bitmap bmp;
         public PictureBox pb;
 
+
         public Form1()
         {
             InitializeComponent();
@@ -43,37 +44,21 @@ namespace BooleanFunction
 
             List<List<int>> arr = new List<List<int>>();
             int temp = (int)Math.Pow(2, CountVariable);
-            var t = 0;
             TableOfVerity = new int[CountVariable, temp];
+            TableOfVerity = FillTableOfVerity();
             FuncOfBoolean = new int[temp];
             for (int i = 0; i < CountVariable; i++)
             {
                 for (int j = 0; j < temp; j++)
                 {
-                    t = (int)(temp / Math.Pow(2, i));
-                    int c = t+1;
-                    if(j<t)
+                    TextBox textBox = new TextBox()
                     {
-                        TextBox textBox = new TextBox()
-                        {
-                            Width = 20,
-                            Height = 20,
-                            Text = "0",
-                        };
-                        tableLayoutPanel1.Controls.Add(textBox, i, j);
-                    }
-                    else
-                    {
-                        TextBox textBox = new TextBox()
-                        {
-                            Width = 20,
-                            Height = 20,
-                            Text = "1",
-                        };
-                        tableLayoutPanel1.Controls.Add(textBox, i, j);
-                        TableOfVerity[i, j] = 1;
-                    }
-
+                        Width = 20,
+                        Height = 20,
+                        Text = TableOfVerity[i, j].ToString(),
+                        Enabled=false,
+                    };
+                    tableLayoutPanel1.Controls.Add(textBox, i, j);
                 }
             }
             for (int j = 0; j < temp; j++)
@@ -90,7 +75,81 @@ namespace BooleanFunction
             tableLayoutPanel1.ColumnStyles.Clear();
             tableLayoutPanel1.RowStyles.Clear();
             tableLayoutPanel2.RowStyles.Clear();
+            flowLayoutPanel2.Controls.Add(tableLayoutPanel1);
+            flowLayoutPanel2.Controls.Add(tableLayoutPanel2);
         }
+        private int[,] FillTableOfVerity()
+        {
+            int ei = CountVariable - 1;
+            string str = "",end="",res="";
+            for (int i = 0; i < CountVariable; i++)
+            {
+                str += "0";
+            }
+            end = str.Replace('0', '1');
+            res = str; 
+            while (str != end)
+            {
+                if (str.EndsWith("1"))
+                {
+                    for (int i = ei; i >= 0; i--)
+                    {
+                        if (str[i] == '1')
+                        {
+                            StringBuilder somestring = new StringBuilder(str);
+                            somestring[i] = '0';
+                            str = somestring.ToString();
+                        }
+                        else
+                        {
+                            StringBuilder somestring = new StringBuilder(str);
+                            somestring[i] = '1';
+                            str = somestring.ToString();
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    StringBuilder somestring = new StringBuilder(str);
+                    somestring[ei] = '1';
+                    str = somestring.ToString();
+                }
+                res += str;
+                //matrix = ToList(str);
+            }
+            return ToMatrix(res);
+        }
+        private int [,]ToMatrix(string res)
+        {
+            int[,] m = new int[(int)Math.Pow(2, CountVariable),CountVariable];
+            var d=res.ToArray();
+            int t = 0;
+            for (int i = 0; i < m.GetLength(0); i++)
+            {
+                for (int j = 0; j < m.GetLength(1); j++)
+                {
+                    m[i,j] = Convert.ToInt32(d[t].ToString());
+                    t++;
+                }
+            }
+            return Transposition(m); 
+        }
+
+        private int [,] Transposition(int[,] p)
+        {
+            int[,] trans = new int[CountVariable, (int)Math.Pow(2, CountVariable)];
+            for (int i = 0; i < p.GetLength(1); i++)
+            {
+                for (int j = 0; j < p.GetLength(0); j++)
+                {
+                    trans[i,j] = p[j, i];
+
+                }
+            }
+            return trans;
+        }
+
         private void Create_Click(object sender, EventArgs e)
         {
             tableLayoutPanel1.Controls.Clear();
