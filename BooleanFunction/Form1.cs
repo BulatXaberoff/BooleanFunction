@@ -19,13 +19,24 @@ namespace BooleanFunction
         public int[] FuncOfBoolean;
         public Bitmap bmp;
         public PictureBox pb;
-
+        public TableLayoutPanel tableLayoutPanel1;
+        public TableLayoutPanel tableLayoutPanel2;
 
         public Form1()
         {
             InitializeComponent();
-            tableLayoutPanel1.RowCount = 0;
-            tableLayoutPanel1.ColumnCount = 0;
+            tableLayoutPanel1 = new TableLayoutPanel()
+            {
+                RowCount = 0,
+                ColumnCount = 0,
+                AutoSize = true,
+            };
+            tableLayoutPanel2 = new TableLayoutPanel()
+            {
+                AutoSize = true,
+                Margin = new Padding(100,0,0,0)
+            };
+
         }
 
         private void Count_Of_Variables_TextChanged(object sender, EventArgs e)

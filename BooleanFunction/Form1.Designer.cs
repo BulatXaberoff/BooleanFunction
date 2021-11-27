@@ -31,10 +31,8 @@ namespace BooleanFunction
         {
             this.label1 = new System.Windows.Forms.Label();
             this.Count_Of_Variables = new System.Windows.Forms.TextBox();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.Create = new System.Windows.Forms.Button();
             this.Create_Forms = new System.Windows.Forms.Button();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
@@ -55,18 +53,6 @@ namespace BooleanFunction
             this.Count_Of_Variables.Size = new System.Drawing.Size(20, 20);
             this.Count_Of_Variables.TabIndex = 10;
             this.Count_Of_Variables.TextChanged += new System.EventHandler(this.Count_Of_Variables_TextChanged);
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.AutoScroll = true;
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 96);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(228, 496);
-            this.tableLayoutPanel1.TabIndex = 11;
             // 
             // Create
             // 
@@ -89,21 +75,9 @@ namespace BooleanFunction
             this.Create_Forms.Visible = false;
             this.Create_Forms.Click += new System.EventHandler(this.Create_Forms_Click);
             // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.AutoScroll = true;
-            this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(286, 96);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(51, 496);
-            this.tableLayoutPanel2.TabIndex = 20;
-            // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(355, 204);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(407, 96);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(484, 388);
             this.flowLayoutPanel1.TabIndex = 22;
@@ -111,9 +85,9 @@ namespace BooleanFunction
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.AutoScroll = true;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(862, 55);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(12, 96);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(489, 537);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(377, 499);
             this.flowLayoutPanel2.TabIndex = 23;
             // 
             // Form1
@@ -121,13 +95,11 @@ namespace BooleanFunction
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(1454, 680);
+            this.ClientSize = new System.Drawing.Size(915, 680);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.Create_Forms);
             this.Controls.Add(this.Create);
-            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.Count_Of_Variables);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
@@ -141,10 +113,8 @@ namespace BooleanFunction
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox Count_Of_Variables;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button Create;
         private System.Windows.Forms.Button Create_Forms;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
     }
