@@ -77,17 +77,17 @@ namespace BooleanFunction
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(407, 96);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(407, 111);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(484, 388);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(484, 484);
             this.flowLayoutPanel1.TabIndex = 22;
             // 
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.AutoScroll = true;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(12, 96);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(12, 111);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(377, 499);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(367, 484);
             this.flowLayoutPanel2.TabIndex = 23;
             // 
             // Form1

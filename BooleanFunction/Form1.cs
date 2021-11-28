@@ -34,20 +34,29 @@ namespace BooleanFunction
             tableLayoutPanel2 = new TableLayoutPanel()
             {
                 AutoSize = true,
-                Margin = new Padding(100,0,0,0)
+                Margin = new Padding(20,0,0,0)
             };
 
         }
 
         private void Count_Of_Variables_TextChanged(object sender, EventArgs e)
         {
-            if (Count_Of_Variables.Text != "")
+            try
             {
-                tableLayoutPanel1.Controls.Clear();
-                tableLayoutPanel2.Controls.Clear();
-                CountVariable = int.Parse(Count_Of_Variables.Text);
-                tableLayoutPanel1.ColumnCount = CountVariable;
-                Create_Forms.Visible = false;
+
+                if (Count_Of_Variables.Text != "")
+                {
+                    tableLayoutPanel1.Controls.Clear();
+                    tableLayoutPanel2.Controls.Clear();
+                    CountVariable = int.Parse(Count_Of_Variables.Text);
+                    tableLayoutPanel1.ColumnCount = CountVariable;
+                    Create_Forms.Visible = false;
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Нужны цифры");
+                Count_Of_Variables.Text = "";
             }
         }
         private void FillTable()
@@ -58,8 +67,21 @@ namespace BooleanFunction
             TableOfVerity = new int[CountVariable, temp];
             TableOfVerity = FillTableOfVerity();
             FuncOfBoolean = new int[temp];
+            decimal bottomsymbol = 8321;
+            decimal[] symbolsx = new decimal[CountVariable];
+            string tem = "" + 'F'+"(";
             for (int i = 0; i < CountVariable; i++)
             {
+                Label label4 = new Label()
+                {
+
+                    AutoSize = true,
+                    Font = new Font(Font.Name, 15),
+                    Text = "x" + (char)bottomsymbol,
+                };
+                tem +="x" + (char)bottomsymbol + ",";
+                
+                tableLayoutPanel1.Controls.Add(label4,i,0);
                 for (int j = 0; j < temp; j++)
                 {
                     TextBox textBox = new TextBox()
@@ -69,18 +91,31 @@ namespace BooleanFunction
                         Text = TableOfVerity[i, j].ToString(),
                         Enabled=false,
                     };
-                    tableLayoutPanel1.Controls.Add(textBox, i, j);
+                    tableLayoutPanel1.Controls.Add(textBox, i, j+1);
                 }
+                bottomsymbol++;
             }
+            tem = tem.Remove(tem.Length - 1);
+            tem += ")";
+            Label label = new Label()
+            {
+                AutoSize = true,
+                Font = new Font(Font.Name, 15),
+                Text=tem,
+            };
+
+            tableLayoutPanel2.Controls.Add(label, 0, 0);
             for (int j = 0; j < temp; j++)
             {
+                
                 TextBox textBox = new TextBox()
                 {
                     Width = 20,
                     Height = 20,
                     Text = "0",
                 };
-                tableLayoutPanel2.Controls.Add(textBox, 0, j);
+
+                tableLayoutPanel2.Controls.Add(textBox, 0, j+1);
             }
 
             tableLayoutPanel1.ColumnStyles.Clear();
@@ -163,6 +198,16 @@ namespace BooleanFunction
 
         private void Create_Click(object sender, EventArgs e)
         {
+            if (Count_Of_Variables.Text == "")
+            {
+                MessageBox.Show("Заполните!");
+                return;
+            }
+            if (Convert.ToInt32(Count_Of_Variables.Text)>6)
+            {
+                MessageBox.Show("Больше 6 переменных не потяну");
+                return;
+            }
             tableLayoutPanel1.Controls.Clear();
             tableLayoutPanel2.Controls.Clear();
             FillTable();
@@ -213,6 +258,7 @@ namespace BooleanFunction
         }
         private void Create_Forms_Click(object sender, EventArgs e)
         {
+           
             ClearDesition();
             FillMatrix();
             bool checkSDNF = false;
@@ -332,7 +378,7 @@ namespace BooleanFunction
             var parser = new TexFormulaParser();
             var formula = parser.Parse(latex);
 
-            var pngBytes = formula.RenderToPng(16.0, 0.0, 0.0, "Arial");
+            var pngBytes = formula.RenderToPng(20.0, 10.0, 0.0, "Arial");
             using (var ms = new MemoryStream(pngBytes))
             {
                 bmp = new Bitmap(ms);
